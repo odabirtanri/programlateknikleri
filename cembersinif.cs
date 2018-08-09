@@ -65,14 +65,26 @@ namespace ConsoleApplication112
                 Console.WriteLine("----------------------------");
                 Console.WriteLine();
             }
+          
+
+            ~Cember() // Yıkıcı Metod
+            {
+                Console.WriteLine("Yıkıcı Çalıştı.");
+            }
             /// Pi ve R nin kapsülleme işlemi yapıldı.
 
         }
         static void Main(string[] args)
         {
-            Cember c1 = new Cember();
-            c1.r = 4;
-            c1.yaz();
+            if (true)
+            {
+                Cember c1 = new Cember();
+                c1.r = 4;
+                c1.pi = 4.14d;
+                c1.yaz(); 
+            }
+            
+            Console.ReadLine();
             Cember c2 = new Cember(5);
             c2.yaz();
             Cember c3 = new Cember(6,22d/7d);
