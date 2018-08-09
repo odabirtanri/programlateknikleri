@@ -1,0 +1,86 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApplication42
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            byte[,] dizi = new byte[3, 5];
+            Random rnd = new Random();
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine("Sayı gir: ");
+                byte sayi = Convert.ToByte(Console.ReadLine());
+                dizi[0, i] = sayi;
+                dizi[1, i] = (byte)rnd.Next(0, 50);
+
+            }
+
+            // ilk satırı kullanıcı girdi ikinci satırı random atadı 
+
+            for (int i = 0; i <5; i++)
+            {
+                dizi[2, i] = dizi[0, 4 - i];
+            }
+            // 3 satıra ilk satırın tersini yazdı
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    Console.Write(dizi[i,j]+"-");
+                }
+                Console.WriteLine();
+            }
+            // ilk diziyi ekrana yazdırma
+
+
+            int[,] ydizi = new int[5, 3];
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j  = 0; j < 3; j++)
+                {
+                    ydizi[i, j] = dizi[j, i];
+                } 
+            }
+            //ikinci diziyi oluşturduk satırları sütün kabul ederek
+
+            int eb = 0;
+            int ebs = 0;
+            int aritmatik = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                if (eb<ydizi[0,i])
+                {
+                    eb = ydizi[0, i];
+                    ebs = i;
+                }
+                aritmatik += ydizi[2, i];
+            }
+            //En büyük sayı ve sıra numarası ve aritmatik ortalama bulundu
+
+            //70 puan h.o
+            
+
+
+            Console.WriteLine();
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(ydizi[i, j] + "-");
+                }
+                Console.WriteLine();
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("En Büyük Sayı: "+eb);
+            Console.WriteLine("En Büyük Sıra: " + ebs);
+            Console.WriteLine("Aritmetik Ortalama: " + aritmatik/3);
+        }
+    }
+}
