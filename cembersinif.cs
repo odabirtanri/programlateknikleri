@@ -11,6 +11,8 @@ namespace ConsoleApplication112
       // Çember sınıfı yapıcı metod olacak set get olcak dolayısıyla pi r ve normal pi r olacak
         class Cember
         {
+
+
             public Cember(double r, double pi)//Yapıcı metod
             {
                 this.r = r; // =den sonraki parametre olarak gelen r.
@@ -26,8 +28,7 @@ namespace ConsoleApplication112
             }
 
             private double gr;
-            private double gpi;
-            // kapsüllemek için gerçek pi ve gerçek r oluşturuldu.
+            private double gpi; // kapsüllemek için gerçek pi ve gerçek r oluşturuldu.
             public double r
             {
                 set
@@ -51,11 +52,12 @@ namespace ConsoleApplication112
                 {
                     return gpi; 
                 }
-            }
+            } /// Pi ve R nin kapsülleme işlemi yapıldı.
+
             public double cevre()
             {
                 return 2 * gpi * gr;
-            }
+            }//Çevre Hesaplama Yapıldı
             public void yaz()
             {
                 Console.WriteLine("---*| Çember Bilgileri |*---");
@@ -64,14 +66,13 @@ namespace ConsoleApplication112
                 Console.WriteLine("Çevresi  : "+cevre());
                 Console.WriteLine("----------------------------");
                 Console.WriteLine();
-            }
+            }//Ekrana Yazıldı
           
 
             ~Cember() // Yıkıcı Metod
             {
                 Console.WriteLine("Yıkıcı Çalıştı.");
             }
-            /// Pi ve R nin kapsülleme işlemi yapıldı.
 
         }
         static void Main(string[] args)
