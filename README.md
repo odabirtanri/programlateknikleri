@@ -1,1 +1,1 @@
-# programlateknikleri
+# Programlama Teknikleri Çalışma Notları #
