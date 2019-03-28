@@ -1,0 +1,61 @@
+http://selimkaratas.com.tr/wp/oracle-database-11g-sql-temelleri-ders-notlari-10.html
+lifeinnorway.net
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//////////////////////////////////////////View//////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+CREATE OR REPLACE VIEW dept_sum_vu
+  (name, minsal, maxsal, avgsal)
+AS SELECT   d.department_name, MIN(e.salary), 
+            MAX(e.salary),AVG(e.salary)
+   FROM     employees e JOIN departments d
+   ON       (e.department_id = d.department_id)
+   GROUP BY d.department_name;
+View created.
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+////////////////////////////////////////Indexler////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+- Þema objesidir
+- Büyük veriler için index tanýmlanmaz
+- Indexlerde alter kullanýlamaz
+-  
+
+Table hariç tüm db nesneleri db de performansý arttýrýr.
+
+CREATE INDEX 	emp_last_name_idx
+ON 		employees(last_name);
+Index created.
+
+
+Index Kaldýrma
+
+DROP INDEX index
+
+DROP INDEX emp_last_name_idx;
+Index dropped
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+///////////////////////////////////Synoynms-Eþ anlamlýlar///////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+-Synoymler objeye alternatif isimler verir. Bir diðer deyiþle kalýcý alias atar.
+
+CREATE SYNONYM  d_sum // daha önce tanýmlanmýþ olan viewe synoynm atadýk.
+FOR  dept_sum_vu;
+Synonym Created.
+
+
+DROP SYNONYM d_sum;
+Synonym dropped.
+
+////////
+11
+
+
+
