@@ -20,19 +20,19 @@ View created.
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 
-- Þema objesidir
-- Büyük veriler için index tanýmlanmaz
-- Indexlerde alter kullanýlamaz
+- Åžema objesidir
+- BÃ¼yÃ¼k veriler iÃ§in index tanÄ±mlanmaz
+- Indexlerde alter kullanÄ±lamaz
 -  
 
-Table hariç tüm db nesneleri db de performansý arttýrýr.
+Table hariÃ§ tÃ¼m db nesneleri db de performansÄ± arttÄ±rÄ±r.
 
 CREATE INDEX 	emp_last_name_idx
 ON 		employees(last_name);
 Index created.
 
 
-Index Kaldýrma
+Index KaldÄ±rma
 
 DROP INDEX index
 
@@ -41,12 +41,12 @@ Index dropped
 
 
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-///////////////////////////////////Synoynms-Eþ anlamlýlar///////////////////////////////
+///////////////////////////////////Synoynms-EÅŸ anlamlÄ±lar///////////////////////////////
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
--Synoymler objeye alternatif isimler verir. Bir diðer deyiþle kalýcý alias atar.
+-Synoymler objeye alternatif isimler verir. Bir diÄŸer deyiÅŸle kalÄ±cÄ± alias atar.
 
-CREATE SYNONYM  d_sum // daha önce tanýmlanmýþ olan viewe synoynm atadýk.
+CREATE SYNONYM  d_sum // daha Ã¶nce tanÄ±mlanmÄ±ÅŸ olan viewe synoynm atadÄ±k.
 FOR  dept_sum_vu;
 Synonym Created.
 
@@ -55,7 +55,23 @@ DROP SYNONYM d_sum;
 Synonym dropped.
 
 ////////
-11
+Managing Objectswith Data Dictionary Views 
+DESCRIBE DICTIONARY
+SELECT *
+FROM   dictionary
+WHERE  table_name = 'USER_OBJECTS';
+
+SELECT object_name, object_type, created, status
+FROM   user_objects
+ORDER BY object_type;
+
+SELECT table_name
+FROM   user_tables;
+
+DESCRIBE user_tab_columns
+
+
+
 
 
 
